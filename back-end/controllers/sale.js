@@ -2,7 +2,7 @@
 
 const Sale = require('../models/Sale')
 
-const controller =  {} // Objeto vazio
+const controller = {} // Objeto vazio
 
 controller.create = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ controller.create = async (req, res) => {
         //HTTP 201: Created
         res.status(201).end()
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
@@ -21,14 +21,14 @@ controller.create = async (req, res) => {
     }
 }
 
-controller.retriveAll = async (req, res) =>{
-    try{
+controller.retriveAll = async (req, res) => {
+    try {
         //Retorna todos os documentos do console
         const result = await Sale.find().populate('customer')
         //HTTP 200: OK(implicito)
         res.send(result)
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
@@ -36,12 +36,12 @@ controller.retriveAll = async (req, res) =>{
     }
 }
 
-controller.retriveOne = async (req, res) =>{
-    try{
+controller.retriveOne = async (req, res) => {
+    try {
         //Retorna todos os documentos do console
         const result = await Sale.findById(req.params.id).populate('customer')
-        
-        if(result) {
+
+        if (result) {
             //Encontrou o documento => HTTP 200: OK (implicito)
             res.send(result)
         }
@@ -50,19 +50,19 @@ controller.retriveOne = async (req, res) =>{
             res.status(404).end()
         }
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
     }
 }
 
-controller.update = async (req, res) =>{
-    try{
-        
+controller.update = async (req, res) => {
+    try {
+
         const result = await Sale.findByIdAndUpdate(req.params.id, req.body)
-        
-        if(result) {
+
+        if (result) {
             //Encontrou e atualizou => HTTP 204: No content
             res.send(204).end()
         }
@@ -71,19 +71,19 @@ controller.update = async (req, res) =>{
             res.status(404).end()
         }
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
     }
 }
 
-controller.delete = async (req, res) =>{
-    try{
-        
+controller.delete = async (req, res) => {
+    try {
+
         const result = await Sale.findByIdAndDelete(req.params.id)
-        
-        if(result) {
+
+        if (result) {
             //Encontrou e excluiu => HTTP 204: No content
             res.send(204).end()
         }
@@ -92,11 +92,11 @@ controller.delete = async (req, res) =>{
             res.status(404).end()
         }
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
     }
 }
 
-module. exports = controller
+module.exports = controller
