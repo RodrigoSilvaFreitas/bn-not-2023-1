@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/customer')
+const controller = require('../controllers/sale')
 
 router.post('/', controller.create)
-router.get('/', controller.retrieveAll)
-router.get('/:id', controller.retrieveOne)
+router.get('/', controller.retriveAll)
+router.get('/:id', controller.retriveOne)
 router.put('/:id', controller.update)
 router.delete('/:id', controller.delete)
 
