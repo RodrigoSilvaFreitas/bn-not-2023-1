@@ -34,4 +34,7 @@ app.use('/customers', customersRouter)
 const salesRouter = require('./routes/sales')
 app.use('/sales', salesRouter)
 
+const suplliersRouter = require('./routes/suplliers')
+app.use('/suplliers', suplliersRouter)
+
 module.exports = app;
