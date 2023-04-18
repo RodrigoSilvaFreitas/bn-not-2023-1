@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    nome: {
+    name: {
         type: String,
         required: true,
     },
@@ -56,4 +56,4 @@ const schema = mongoose.Schema({
 //2º relação de campos do esquema (contante schema)
 //3º nome da collection no banco de dados (convenção: mesmo nome do model mas com letra minúscila e no plural)
 
-module.exports = mongoose.model('Supllier', schema, 'suplliers')
+module.exports = mongoose.model('Supplier', schema, 'suppliers')
